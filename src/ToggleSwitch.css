@@ -1,0 +1,35 @@
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-switch {
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ccc;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch.on {
+  background-color: #4caf50;
+}
+
+.toggle-circle {
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch.on .toggle-circle {
+  transform: translateX(30px);
+}
