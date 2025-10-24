@@ -1,52 +1,100 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Form from "./Form";
-import List from "./List";
-// import Register from "./Register";
-import StateDemo from "./StateDemo";  // your renamed hook demo
-import Color from "./Color";
-import Time from "./Time";
-import Event from "./Event";
-import Todo from "./Todo";
-import Prop from "./Prop";
-import Toggle from "./Toggle";
-import Incre from "./Incre";
-import Search from "./Search";
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import BlogPage from './pages/BlogPage';
+import ResourcesPage from './pages/ResourcesPage';
+
+const AboutPage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">About Us</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Learn more about our mission and team.</p>
+  </div>
+);
+
+const ContactPage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Get in touch with our team.</p>
+  </div>
+);
+
+const WebDevelopmentPage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">Web Development Bootcamp</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Become a full-stack web developer.</p>
+  </div>
+);
+
+const DataSciencePage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">Data Science Bootcamp</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Master data analysis and machine learning.</p>
+  </div>
+);
+
+const UXUIDesignPage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">UX/UI Design Bootcamp</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Learn user-centered design principles.</p>
+  </div>
+);
+
+const DigitalMarketingPage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">Digital Marketing Bootcamp</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Master digital marketing strategies.</p>
+  </div>
+);
+
+const SEOTipsPage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">10 SEO Tips for Beginners</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Learn the fundamentals of search engine optimization.</p>
+  </div>
+);
+
+const ContentMarketingPage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">Content Marketing Strategies That Work</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Discover effective content marketing approaches.</p>
+  </div>
+);
+
+const PersonalBrandingPage = () => (
+  <div className="container mx-auto px-4 py-16 text-center">
+    <h1 className="text-4xl font-bold text-gray-900 mb-4">Building Your Personal Brand Online</h1>
+    <p className="text-gray-600 max-w-2xl mx-auto">Establish a strong personal brand in the digital space.</p>
+  </div>
+);
 
 function App() {
   return (
-    <div>
-      {/* Navigation Menu */}
-      <nav style={{ marginBottom: "20px" }}>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/state">StateDemo</Link> |{" "}
-        <Link to="/color">Color</Link> |{" "}
-        <Link to="/form">Form</Link> |{" "}
-        <Link to="/list">List</Link> |{" "}
-        <Link to="/time">Time</Link> |{" "}
-        <Link to="/event">Event</Link> |{" "}
-        <Link to="/todo">Todo</Link> |{" "}
-        <Link to="/Toggle">Toggle</Link> |{" "}
-        <Link to="/Prop">Prop</Link> |{" "}
-        <Link to="/Search">Search</Link> |{" "}
-        <Link to="/Incre">Incre</Link>
-      </nav>
-
-      {/* Define Routes */}
-      <Routes>
-        <Route path="/" element={<h1>Welcome! Choose a page from above</h1>} />
-        <Route path="/state" element={<StateDemo />} />
-        <Route path="/color" element={<Color />} />
-        <Route path="/form" element={<Form />} />
-        <Route path="/list" element={<List />} />
-        <Route path="/time" element={<Time />} />
-        <Route path="/event" element={<Event />} />
-        <Route path="/todo" element={<Todo />} />
-        <Route path="/Prop" element={<Prop />} />
-        <Route path="/Toggle" element={<Toggle />} />
-        <Route path="/Incre" element={<Incre/>} />
-        <Route path="/Search" element={<Search/>} />
-      </Routes>
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+         <Route path="/" element={<HomePage />} />
+            <Route path="/blog/how-to-attract-the-first-1000-visitors-to-your-website" element={<BlogPage />} />
+         <Route path="/resources" element={<ResourcesPage />} />
+            
+            {/* New routes for navigation */}
+         <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+         <Route path="/web-development" element={<WebDevelopmentPage />} />
+            <Route path="/data-science" element={<DataSciencePage />} />
+            <Route path="/ux-ui-design" element={<UXUIDesignPage />} />
+         <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
+            <Route path="/blog/seo-tips-for-beginners" element={<SEOTipsPage />} />
+         <Route path="/blog/content-marketing-strategies" element={<ContentMarketingPage />} />
+            <Route path="/blog/building-personal-brand-online" element={<PersonalBrandingPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
